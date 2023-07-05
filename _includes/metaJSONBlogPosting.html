@@ -1,0 +1,51 @@
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org/",
+    "@type": "Blog",
+    "@id": "{{ site.url }}/",
+    "mainEntityOfPage": "{{ site.url }}",
+    "name": "{{ site.name }}",
+    "description": "{{ site.description }}",
+    "keywords":["medizaa","medizaa indonesia","medizaa indonesia official","investasi aman","cara investasi","bisnis online","bisnis yang menjanjikan","bisnis masa depan"],
+    "publisher": {
+        "@type": "Organization",
+        "@id": "{{ site.url }}",
+        "name": "{{ site.name }}",
+        "logo": {
+            "@type": "ImageObject",
+            "@id": "{{ site.avatar }}",
+            "url": "{{ site.avatar }}",
+            "width": "192",
+            "height": "192"
+        }
+    },
+    "blogPost": [{% for post in site.posts limit:10 %}
+        {
+            "@type": "BlogPosting",
+            "@id": "{{ site.url }}{{ post.permalink }}#BlogPosting",
+            "mainEntityOfPage": "{{ site.url }}{{ post.permalink }}",
+            "headline": "{{ post.title }}",
+            "name": "{{ post.title }}",
+            "description": "{{ post.description }}",
+            "datePublished": "{{ post.date | date_to_xmlschema }}",
+            "dateModified": "{{ post.date | date_to_xmlschema }}",
+	    "articleBody": "{{ post.content | xml_escape }}",
+            "author": {
+                "@type": "Person",
+                "@id": "{{ site.url }}/#Person",
+                "name": "Medizaa",
+              "url":"{{ site.url }}"
+            },
+            "image": {
+                "@type": "ImageObject",
+                "@id": "{{ post.image }}",
+                "url": "{{ post.image }}",
+                "height": "360",
+                "width": "480"
+            },
+            "url": "{{ site.url }}{{ post.permalink }}",
+            "keywords": [{% for keywords in post.keyword limit:10 %}"{{ keywords }}"{% if forloop.last == false %},{% endif %}{% endfor %}]
+        }{% if forloop.last == false %},{% endif %}{% endfor %}
+    ]
+}
+</script>

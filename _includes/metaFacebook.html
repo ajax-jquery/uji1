@@ -1,0 +1,22 @@
+<meta property="og:locale" content="id_ID" class="yoast-seo-meta-tag" />
+<meta content="en_US" property="og:locale:alternate" class="yoast-seo-meta-tag" />
+<meta property="og:type" content="article" class="yoast-seo-meta-tag" />
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% endif %}" class="yoast-seo-meta-tag" />
+<meta property="og:description" content="Medizaa - {% if page.description %}{{ page.description }}{% endif %}" class="yoast-seo-meta-tag" />
+<meta property="og:url" content="{{ site.url }}{% if page.permalink %}{{ page.permalink }}{% endif %}" class="yoast-seo-meta-tag" />
+<meta property="og:site_name" content="{{ site.name }} - {{ site.description }}" class="yoast-seo-meta-tag" />
+<meta property="article:publisher" content="https://www.facebook.com/medizaaindonesia" class="yoast-seo-meta-tag" />
+<meta property="article:author" content="facebook.com/medizaaindonesia" class="yoast-seo-meta-tag" />
+{% if page.date %}
+<meta property="article:published_time" content="{{ page.date }}" class="yoast-seo-meta-tag" />
+<meta property="article:modified_time" content="{{ page.date }}" class="yoast-seo-meta-tag" />
+{% endif %}
+<meta property="article:section" content="Business">
+{% for keywords in page.keyword limit:10 %}
+<meta property="article:tag" content="{{ keywords }}">
+{% endfor %}
+<meta property="og:image" content="{% if page.image %}{{ page.image }}{% endif %}" class="yoast-seo-meta-tag" />
+<meta property="og:image:width" content="1200" class="yoast-seo-meta-tag" />
+<meta property="og:image:height" content="630" class="yoast-seo-meta-tag" />
+<meta property="og:image:type" content="image/png" class="yoast-seo-meta-tag" />
+<meta name="author" content="Medizaa" class="yoast-seo-meta-tag" />
